@@ -1,4 +1,5 @@
-Question:
+ID 9620
+Problem Statement:
 Find all search details where data is missing from the host_response_rate column.
 
 Input DataFrame:
