@@ -1,0 +1,57 @@
+Question 1. ID 9602
+Find hotels in the Netherlands that got guest complaints about room dirtiness (the word "dirty" in its negative review). 
+Output all the columns in your results
+(Link: https://lnkd.in/gesp-m23)
+
+Solution: 
+SELECT *
+FROM hotel_reviews
+WHERE hotel_address LIKE "%Netherlands%"
+AND negative_review LIKE "%dirty%";
+
+------------------------------********************************------------------------------
+
+Question 2. ID 9615
+Find the search details made by people who searched for apartments designed for a single-person stay.
+(Link: https://lnkd.in/gMJzbDUg)
+
+Solution: 
+SELECT *
+FROM airbnb_search_details
+WHERE property_type = "Apartment"
+AND accommodates = 1;
+
+------------------------------********************************------------------------------
+
+Question 3. ID 9618
+Find distinct searches for Los Angeles neighborhoods. Output neighborhoods and remove duplicates.
+(Link: https://lnkd.in/griYrwJK)
+
+Solution:
+SELECT COUNT(*) AS number_LA_search
+FROM airbnb_search_details
+WHERE neighbourhood LIKE "%Los Angeles%" ;
+
+------------------------------********************************------------------------------
+
+Question 4. ID 9620
+Find all search details where data is missing from the host_response_rate column.
+(Link: https://lnkd.in/gfqaa8Ss)
+
+Solution:
+SELECT *
+FROM airbnb_search_details
+WHERE host_response_rate IS NULL;
+
+------------------------------********************************------------------------------
+
+Question 5. ID 9638
+Find the total number of searches for each room type (apartments, private, shared) by city.
+(Link: https://lnkd.in/gr32DWgH)
+
+Solution: 
+SELECT room_type,
+    city,
+    COUNT(*) AS total_search
+FROM airbnb_search_details
+GROUP BY room_type, city;
